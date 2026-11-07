@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sumiiii</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #102b55;
+    color: #244a78;
+    font-family: 'Patrick Hand', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 16px;
+}
+
+.book {
+    width: min(760px, 100%);
+    min-height: 650px;
+    background: #f8fbff;
+    border: 10px solid #d6e8ff;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px #06152d88;
+    position: relative;
+    overflow: hidden;
+    background-image: radial-gradient(#b7d5fa 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+}
+
+.page {
+    display: none;
+    min-height: 630px;
+    padding: 35px 25px 28px;
+    text-align: center;
+    position: relative;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1, h2, p {
+    margin: 10px 0;
+}
+
+h1 {
+    font: 700 clamp(2.5rem, 8vw, 4.5rem) 'Caveat', cursive;
+    color: #2766a5;
+}
+
+h2 {
+    font: 700 clamp(2rem, 6vw, 3.2rem) 'Caveat', cursive;
+    color: #3979b8;
+}
+
+p {
+    font-size: clamp(1.15rem, 3.8vw, 1.65rem);
+    line-height: 1.45;
+    white-space: pre-line;
+}
+
+.decor {
+    font-size: 3rem;
+    margin: 8px;
+}
+
+.btn {
+    border: 2px solid #6ca5df;
+    background: #dceeff;
+    color: #235b94;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font: 1.25rem 'Patrick Hand', cursive;
+    cursor: pointer;
+    margin: 12px 5px;
+    box-shadow: 0 4px 0 #a9ccef;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.sticker {
+    position: absolute;
+    font-size: 2rem;
+    opacity: .8;
+}
+
+.s1 { top: 12px; left: 15px; }
+.s2 { top: 12px; right: 15px; }
+.s3 { bottom: 12px; left: 18px; }
+.s4 { bottom: 12px; right: 18px; }
+
+/* ANIMATED CAKE */
+
+.cake {
+    font-size: 6rem;
+    cursor: pointer;
+    display: inline-block;
+    animation: cakeBounce 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 7px 5px #8ab8e866);
+}
+
+@keyframes cakeBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-13px) rotate(2deg);
+    }
+}
+
+.candle {
+    display: inline-block;
+    animation: flame .7s ease-in-out infinite alternate;
+}
+
+@keyframes flame {
+    from {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    to {
+        transform: scale(1.15);
+        filter: brightness(1.4);
+    }
+}
+
+/* GIFTS */
+
+.gifts {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px;
+}
+
+.gift {
+    font-size: 3.5rem;
+    background: #e5f2ff;
+    border: 2px dashed #8bb9e8;
+    border-radius: 16px;
+    padding: 18px;
+    cursor: pointer;
+}
+
+.note {
+    background: #fff;
+    border: 2px dashed #a7c9ee;
+    border-radius: 15px;
+    padding: 18px;
+    max-width: 620px;
+    box-shadow: 4px 5px #c5def6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="book">
+
+<!-- PAGE 1 -->
+
+<section class="page active" id="p0">
+
+<span class="sticker s1">🎀</span>
+<span class="sticker s2">💙</span>
+<span class="sticker s3">🧸</span>
+<span class="sticker s4">✨</span>
+
+<div class="decor">🩵 🎂 🩵</div>
+
+<h1>Happy Birthday raa</h1>
+
+<p>November 29 2026</p>
+
+<div class="decor">🎁 💌 🎁</div>
+
+<button class="btn" onclick="go(1)">
+Open your birthday book →
+</button>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section class="page" id="p1">
+
+<span class="sticker s1">⭐</span>
+<span class="sticker s2">🩵</span>
+<span class="sticker s3">🎈</span>
+<span class="sticker s4">🎁</span>
+
+<h2>Make a wish!</h2>
+
+<div class="cake" onclick="wish()" title="Tap the cake">
+🎂<span class="candle">🕯️</span>
+</div>
+
+<p id="wishText">
+Tap the cake and make your sweetest wish ✨
+</p>
+
+<button class="btn" onclick="go(2)">
+Next →
+</button>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section class="page" id="p2">
+
+<span class="sticker s1">💌</span>
+<span class="sticker s2">🌷</span>
+<span class="sticker s3">💙</span>
+<span class="sticker s4">✨</span>
+
+<div class="decor">🩵 💐 🩵</div>
+
+<h2>Birthday wishes!</h2>
+
+<p>
+Ee Lokam lo nannu ekkuva bharinchedhi nuvve .
+
+Nuvvu naa life lo vacchaka naa jeevitam aa maripoyindi .
+
+I hope and I wish nee life lo chaala happiness raavali
+</p>
+
+<button class="btn" onclick="go(3)">
+Next →
+</button>
+
+</section>
+
+
+<!-- PAGE 4 -->
+
+<section class="page" id="p3">
+
+<span class="sticker s1">🎁</span>
+<span class="sticker s2">💙</span>
+<span class="sticker s3">🎀</span>
+<span class="sticker s4">✨</span>
+
+<div class="decor">🎁 🎁 🎁</div>
+
+<h2>Will you accept your gifts?</h2>
+
+<p>There are little surprises waiting for you!</p>
+
+<button class="btn" onclick="go(4)">
+Yes, of course!
+</button>
+
+</section>
+
+
+<!-- PAGE 5 -->
+
+<section class="page" id="p4">
+
+<div class="decor">🥺 💙 🥺</div>
+
+<h2>Try again!</h2>
+
+<p>That wasn't the answer I was hoping for 😌</p>
+
+<button class="btn" onclick="go(3)">
+Okay, yes! 💝
+</button>
+
+</section>
+
+
+<!-- PAGE 6 -->
+
+<section class="page" id="p5">
+
+<span class="sticker s1">🎀</span>
+<span class="sticker s2">✨</span>
+<span class="sticker s3">💌</span>
+<span class="sticker s4">💙</span>
+
+<h2>Choose your gifts 🎁</h2>
+
+<p>Tap each gift to open your surprise!</p>
+
+<div class="gifts">
+
+<button class="gift" onclick="openGift(1)">🎁</button>
+<button class="gift" onclick="openGift(2)">🎁</button>
+<button class="gift" onclick="openGift(3)">🎁</button>
+
+</div>
+
+<p id="giftText">Your surprises are waiting 💙</p>
+
+<button class="btn" onclick="go(6)">
+Next →
+</button>
+
+</section>
+
+
+<!-- PAGE 7 -->
+
+<section class="page" id="p6">
+
+<span class="sticker s1">🌸</span>
+<span class="sticker s2">💙</span>
+<span class="sticker s3">🌼</span>
+<span class="sticker s4">✨</span>
+
+<div class="decor">🌷 🌷 🌷</div>
+
+<div class="note">
+
+<p>
+Nuvvu chese prati work lo tondarga success avvalani ani korukuntunna
+</p>
+
+<p>
+Marchipoku Enni years occhina neeku nenu cheppedhae vinaali nuvvu.... option em ledhu Neeku
+</p>
+
+</div>
+
+<button class="btn" onclick="go(7)">
+Next →
+</button>
+
+</section>
+
+
+<!-- PAGE 8 -->
+
+<section class="page" id="p7">
+
+<span class="sticker s1">💌</span>
+<span class="sticker s2">🩵</span>
+<span class="sticker s3">🌷</span>
+<span class="sticker s4">✨</span>
+
+<h2>A little letter for you</h2>
+
+<div class="note">
+
+<p>
+Ey Pillagaadha,Naaku thalanoppi theppinchadam lo nuvvu toper vi! Kaani em chestham, nuvvu antey naku piccha picchaga ishtam. Bharinchaali ga .. Nee birthday gift ga naa heart lo neeku lifetime free space icchestunna..
+
+Konchem thinnaga undi, Nenu cheppedhe chey .Neek kudha manchiga untundhi naak kudha....
+
+Always stay happy and keep smiling!
+
+Love you , naa isthamaina Thalanoppi! ❤️✨
+
+Itluuu,
+
+Nee Second Mother.
+</p>
+
+</div>
+
+<button class="btn" onclick="go(8)">
+One last thing →
+</button>
+
+</section>
+
+
+<!-- PAGE 9 -->
+
+<section class="page" id="p8">
+
+<span class="sticker s1">💙</span>
+<span class="sticker s2">🎂</span>
+<span class="sticker s3">🫂</span>
+<span class="sticker s4">💖</span>
+
+<div class="decor">🎉 🩵 🎉</div>
+
+<h1>Sumiiiiiiiiiii</h1>
+
+<p>
+Appudu Navvutu undhu , Hardwork chesi Success avvu. Mee parents ni nannu proud ga chey , Jaagrathaaa ga undhu ...🫂
+
+I Love You alwaysssssss..❤️‍🩹
+
+Ummmahhhhhhh 😘
+</p>
+
+<div class="decor">💙 🎂 💙</div>
+
+<button class="btn" onclick="go(0)">
+Start again ↻
+</button>
+
+</section>
+
+</div>
+
+<script>
+
+function go(n) {
+    document.querySelectorAll('.page').forEach((p, i) => {
+        p.classList.toggle('active', i === n);
+    });
+}
+
+function wish() {
+    document.getElementById('wishText').textContent =
+    'Wish made! May all your dreams come true 💫';
+}
+
+function openGift(n) {
+
+    const messages = {
+        1: 'Gift 1: A big hug and lots of happiness 🫂💙',
+        2: 'Gift 2: Unlimited smiles and success ✨🎉',
+        3: 'Gift 3: Lifetime friendship and love 💌'
+    };
+
+    document.getElementById('giftText').textContent = messages[n];
+}
+
+</script>
+
+</body>
+  </html>
+  
